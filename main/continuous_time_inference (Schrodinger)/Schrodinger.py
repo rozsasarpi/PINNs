@@ -3,6 +3,7 @@
 """
 
 import sys
+sys.path.insert(0, '../../Utilities/')
 
 import tensorflow as tf
 import numpy as np
@@ -16,7 +17,7 @@ import time
 import matplotlib.gridspec as gridspec
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 
-sys.path.insert(0, '../../Utilities/')
+
 
 np.random.seed(1234)
 tf.set_random_seed(1234)
@@ -87,8 +88,8 @@ class PhysicsInformedNN:
         # Optimizers
         self.optimizer = tf.contrib.opt.ScipyOptimizerInterface(self.loss, 
                                                                 method='L-BFGS-B',
-                                                                options={'maxiter': 50000,
-                                                                         'maxfun': 50000,
+                                                                options={'maxiter': 1000,
+                                                                         'maxfun': 1000,
                                                                          'maxcor': 50,
                                                                          'maxls': 50,
                                                                          'ftol': 1.0 * np.finfo(float).eps})
